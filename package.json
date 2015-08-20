@@ -1,0 +1,17 @@
+{
+  "name": "socialnetwork",
+  "version": "1.0.0",
+  "description": "Test social network",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "tc30nguyen",
+  "license": "ISC",
+  "dependencies": {
+    "backbone": "^1.2.1",
+    "jquery": "^2.1.4",
+    "requirejs": "^2.1.20",
+    "text": "requirejs/text"
+  }
+}
