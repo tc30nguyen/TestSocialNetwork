@@ -4,6 +4,7 @@ define([
 	'backbone',
 	'views/HomeView',
 	'views/AboutView',
+	'views/NavBarView',
 	'views/FooterView',
 	'views/SearchView',
 	'views/SearchQueriesView',
@@ -14,25 +15,27 @@ define([
 	Backbone,
 	HomeView,
 	AboutView,
+	NavBarView,
 	FooterView,
 	SearchView,
 	SearchQueriesView,
 	SearchQueriesCollection
 ){
-	
+
 	var Router = Backbone.Router.extend({
 		routes: {
-			'about': 'showAbout',
+			'': 'showHome,',
 			'home': 'showHome',
+			'about': 'showAbout',
 			'search': 'showSearch',
 		}
 	});
 
 	var initialize = function(){
 		var router = new Router;
+		var homeView = new HomeView();
 		
 		router.on('route:showHome', function(){
-			var homeView = new HomeView();
 			homeView.render();
 		});
 
@@ -45,10 +48,13 @@ define([
 			var queriesCollection = new SearchQueriesCollection();
 
 			var searchView = new SearchView({collection: queriesCollection});
-			var searchQueriesView = new SearchQueriesView({collection: queriesCollection});
 			searchView.render();
+			var searchQueriesView = new SearchQueriesView({collection: queriesCollection});
 		})
 
+		var navBarView = new NavBarView();
+		navBarView.render();
+		homeView.render();
 		var footerView = new FooterView();
 		footerView.render();
 
