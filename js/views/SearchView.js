@@ -9,7 +9,7 @@ define([
 		el: $('#container'),
 
 		events: {
-			'click #searchbar-btn': 'poop'
+			'click #searchbar-btn': 'addQuery'
 		},
 
 		initialze: function(options) {},
@@ -25,7 +25,7 @@ define([
 			return this;
 		},
 
-		poop: function(e) {
+		addQuery: function(e) {
 			e.preventDefault();
 			var newValue = this.inputElem.val();
 			this.collection.add({query: newValue});
