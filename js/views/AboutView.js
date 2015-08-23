@@ -8,13 +8,12 @@ define([
 	var AboutView = Backbone.View.extend({
 		el: $('#container'),
 
-		initialize: function(){
-			var that = this;
-		},
+		initialize: function(){},
 
 		render: function() {
 			var compiledTemplate = _.template(aboutTemplate);
 			this.$el.html(compiledTemplate);
+			return this;
 		}
 	});
 
