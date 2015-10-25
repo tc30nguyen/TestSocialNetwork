@@ -3,7 +3,7 @@ define([
 	'underscore',
 	'backbone',
 	'text!templates/aboutTemplate.html'
-], function($, _, Backbone, aboutTemplate){
+], function ($, _, Backbone, aboutTemplate) {
 
 	var AboutView = Backbone.View.extend({
 		el: $('#container'),
