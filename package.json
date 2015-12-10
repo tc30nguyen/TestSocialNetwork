@@ -12,6 +12,7 @@
     "backbone": "^1.2.1",
     "jquery": "^2.1.4",
     "requirejs": "^2.1.20",
-    "text": "requirejs/text"
+    "text": "requirejs/text",
+    "express": "^4.13.3"
   }
 }
