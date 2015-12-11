@@ -8,7 +8,9 @@ define([
 	'views/FooterView',
 	'views/SearchView',
 	'views/SearchQueriesView',
-	'collections/SearchQueriesCollection'
+	'views/RegistrationView',
+	'collections/SearchQueriesCollection',
+	'collections/UsersCollection'
 ], function(
 	$,
 	_,
@@ -19,7 +21,9 @@ define([
 	FooterView,
 	SearchView,
 	SearchQueriesView,
-	SearchQueriesCollection
+	RegistrationView,
+	SearchQueriesCollection,
+	UsersCollection
 ){
 
 	var Router = Backbone.Router.extend({
@@ -28,6 +32,7 @@ define([
 			'home': 'showHome',
 			'about': 'showAbout',
 			'search': 'showSearch',
+			'register': 'showRegistration'
 		}
 	});
 
@@ -46,11 +51,16 @@ define([
 
 		router.on('route:showSearch', function(){
 			var queriesCollection = new SearchQueriesCollection();
-
 			var searchView = new SearchView({collection: queriesCollection});
 			searchView.render();
 			var searchQueriesView = new SearchQueriesView({collection: queriesCollection});
-		})
+		});
+
+		router.on('route:showRegistration', function(){
+			var usersCollection = new UsersCollection();
+			var registrationView = new RegistrationView({collection: usersCollection});
+			registrationView.render();
+		});
 
 		var navBarView = new NavBarView();
 		navBarView.render();
