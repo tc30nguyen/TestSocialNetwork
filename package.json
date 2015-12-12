@@ -15,5 +15,6 @@
     "text": "requirejs/text",
     "express": "^4.13.3",
     "sequelize": "^3.14.2",
+    "mysql": "^2.9.0"
   }
 }
