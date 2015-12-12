@@ -7,7 +7,7 @@ const app = express();
 app.use(express.static('.'));
 const server = app.listen(PORT, function() {
   console.log('Server running on ' + PORT);
-})
+});
 
 var homePaths = ['/', '/home']
 app.get(homePaths, function(req, res) {
