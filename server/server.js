@@ -16,6 +16,16 @@ app.get(homePaths, function(req, res) {
   res.sendFile(fullPath);
 });
 
+var users = [];
+var currentID = 0;
+app.post('/user', function(req, res) {
+	console.log(req);
+	var id = currentID++;
+	res.send('id: ' + id);
+	users[id] = id;
+	console.log(users);
+});
+
 app.get('*', function(req, res) {
   res.status(404).send('404 Page Not Found');
 });

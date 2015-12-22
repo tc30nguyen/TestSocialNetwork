@@ -30,7 +30,9 @@ define([
         lastName: this.$el.find('#lastName').val(),
         email: this.$el.find('#email').val()
       })
-      this.collection
+      var id = newUser.save();
+      console.log('user id: ' + id);
+// ;      this.collection
     }
   });
 

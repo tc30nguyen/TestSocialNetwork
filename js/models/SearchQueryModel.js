@@ -5,7 +5,7 @@ define([
 ], function($, _, Backbone){
 
 	var SearchQueryModel = Backbone.Model.extend({
-
+		urlRoot: '/searchQuery',
 		defaults: {
 			'query': ''
 		}
