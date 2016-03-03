@@ -5,40 +5,7 @@ const express = require('express');
 const app = express();
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('dev.db');
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('database', 'username', 'password', {
-  host: 'localhost',
-  dialect: 'sqlite',
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  },
-  storage: appDir + '/dev.db'
-});
-
-var User = sequelize.define('user', {
-  firstName: {
-    type: Sequelize.STRING,
-    field: 'first_name'
-  },
-  lastName: {
-    type: Sequelize.STRING
-  }
-}, {
-  freezeTableName: true
-});
-
-User.sync({force: true}).then(function() {
-  return User.create({
-    firstName: 'Test',
-    lastName: 'Lastnamer2'
-  });
-});
-
-User.findAll().then(function(user) {
-  console.log('First name: ' + user.firstName);
-});
+const models = require('./models')
 
 app.use(express.static('.'));
 const server = app.listen(PORT, function() {
