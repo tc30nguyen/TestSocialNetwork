@@ -27,10 +27,11 @@ exports.createUser = function(firstName, lastName, email) {
   });
 }
 exports.searchUser = function(email) {
-  return User.findOne({
-    where: {
-      email: email
+  return User.findOne({ where: { email: email } }).then(function(user) {
+    if(user) {
+      console.log('User: ' + user.get('firstName') + ' ' + user.get('lastName') + ', ' + user.get('email'));
     }
+    return user;
   });
 }
 

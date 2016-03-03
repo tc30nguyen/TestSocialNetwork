@@ -12,8 +12,9 @@ const sequelize = require('./models')
 
 const util = require('util'); //DEBUG ONLY
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('.'));
+app.use(bodyParser.json());
 const server = app.listen(PORT, function() {
   console.log('Server running on ' + PORT);
 });
@@ -39,9 +40,17 @@ app.post('/user', function(req, res) {
   console.log(a);
 });
 
-app.post('/searchQuery', function(req, req) {
+app.post('/searchQuery', function(req, res) {
   console.log('query: ' + util.inspect(req.body));
-  sequelize.searchUser(req.body.query);
+  var userPromise = sequelize.searchUser(req.body.query);
+  userPromise.then(function(onFulfilled) {
+    if(onFulfilled) {
+      console.log('fulfilled: ' + util.inspect(onFulfilled.dataValues));
+    }
+    res.send(onFulfilled == null? null : onFulfilled.dataValues);
+  }, function(onRejected) {
+    console.log('rejected: ' + onRejected);
+  });
 });
 
 app.get('*', function(req, res) {

@@ -31,8 +31,18 @@ define([
 			var query = new SearchQueryModel({
 				query: this.inputElem.val()
 			})
-			// this.collection.add({query: query});
-			var user = query.save();
+			var queryResponses = this.collection;
+			var user = query.save(null, {
+				success: function(model, response) {
+					var userData = response.email + ': ' 
+						+ response.firstName + ' ' 
+						+ response.lastName;
+					queryResponses.add({ query: userData });
+				},
+				error: function(model, response) {
+					console.log('Error: ' + response);
+				}
+			});
 			this.inputElem.val('');
 		}
 	});
