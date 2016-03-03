@@ -17,4 +17,21 @@ db.sequelize = new db.Sequelize(
 );
 
 var User = db.sequelize.import(__dirname + '/user.js');
+exports.createUser = function(firstName, lastName, email) {
+  return User.sync({force: true}).then(function() {
+      return User.create({
+      firstName: firstName,
+      lastName: lastName,
+      email: email
+    });
+  });
+}
+exports.searchUser = function(email) {
+  return User.findOne({
+    where: {
+      email: email
+    }
+  });
+}
+
 return db;

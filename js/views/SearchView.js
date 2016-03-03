@@ -2,8 +2,9 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
+	'models/SearchQueryModel',
 	'text!templates/searchTemplate.html',
-], function($, _, Backbone, searchTemplate){
+], function($, _, Backbone, SearchQueryModel, searchTemplate){
 
 	var SearchView = Backbone.View.extend({
 		el: $('#container'),
@@ -27,8 +28,11 @@ define([
 
 		addQuery: function(e) {
 			e.preventDefault();
-			var newValue = this.inputElem.val();
-			this.collection.add({query: newValue});
+			var query = new SearchQueryModel({
+				query: this.inputElem.val()
+			})
+			// this.collection.add({query: query});
+			var user = query.save();
 			this.inputElem.val('');
 		}
 	});

@@ -5,7 +5,11 @@ module.exports = function(sequelize, DataTypes) {
       field: 'first_name'
     },
     lastName: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      field: 'last_name'
+    },
+    email: {
+      type: DataTypes.STRING,
     }
   }, {
     freezeTableName: true

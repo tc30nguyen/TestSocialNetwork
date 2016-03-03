@@ -7,7 +7,7 @@ define([
   'text!templates/registrationTemplate.html',
 ], function($, _, Backbone, UserModel, UsersCollection, registrationTemplate){
 
-  var SearchView = Backbone.View.extend({
+  var RegistrationView = Backbone.View.extend({
     el: $('#container'),
 
     events: {
@@ -36,5 +36,5 @@ define([
     }
   });
 
-  return SearchView;
+  return RegistrationView;
 });
