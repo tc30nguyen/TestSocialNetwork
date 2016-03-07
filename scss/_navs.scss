@@ -1,0 +1,41 @@
+.navBasic {
+    background-color: #404040;
+    color: white;
+    padding: 0em 0 .5em 5em;
+    width: 100%;
+
+    a {
+        color: white;
+        text-decoration: none;
+        font-size: 2em;
+        margin: 0 .6em;
+
+        &:hover {
+            font-weight: bold;
+        }
+
+        &:active {
+            color: lightgrey;
+        }
+    }
+}
+
+#header {
+    @extend .navBasic;
+    padding: 0em 0 .5em 5em;
+    width: 100%;
+
+    a {
+        font-size: 2em;
+    }
+}
+
+/*footer*/
+#footer {
+    @extend .navBasic;
+    padding: 1em;
+    
+    a {
+        font-size: 1em;
+    }
+}
