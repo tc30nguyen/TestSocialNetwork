@@ -2,3 +2,4 @@ node_modules/
 todo.txt
 *.db
 npm-debug.log
+public/

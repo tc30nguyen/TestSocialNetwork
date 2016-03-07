@@ -4,7 +4,9 @@
   "description": "Test social network",
   "main": "js/main.js",
   "scripts": {
-    "start": "webpack --progress --colors && node server/server",
+    "start": "npm run build-css && npm run pack && node server/server",
+    "pack": "webpack --progress --colors",
+    "build-css": "node-sass --include-path scss scss/style.scss public/css/style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "tc30nguyen",
