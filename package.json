@@ -2,7 +2,7 @@
   "name": "socialnetwork",
   "version": "1.0.0",
   "description": "Test social network",
-  "main": "js/main.js",
+  "main": "public/js/bundle.js",
   "scripts": {
     "start": "npm run build-css && npm run pack && node server/server",
     "pack": "webpack --progress --colors",
